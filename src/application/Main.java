@@ -25,13 +25,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        // --------- Uncomment one at a time to see each part ---------
         
-        // BorderPane root = createBorderPaneSkeleton();       // Step 1
-        // BorderPane root = createBorderPaneWithTop();        // Step 2
+//         BorderPane root = createBorderPaneSkeleton();       // Step 1
+//        BorderPane root = createBorderPaneWithTop();        // Step 2
 //         BorderPane root = createBorderPaneWithLeft();       // Step 3
 //         BorderPane root = createBorderPaneWithCenter();     // Step 4
-        // BorderPane root = createBorderPaneWithRight();      // Step 5
+//         BorderPane root = createBorderPaneWithRight();      // Step 5
         BorderPane root = createBorderPaneWithBottom();      // Step 6
 
         Scene scene = new Scene(root, 1000, 650);
