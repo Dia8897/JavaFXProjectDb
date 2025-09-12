@@ -14,7 +14,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         // --- Top (HBox: Title) ---
-        Label title = new Label("📅 StudentssNOur Projects Planner!!@@!!");
+        Label title = new Label("📅 StudentsNOUSHI Projects Planner!!@@!!");
         title.setId("title");
         HBox top = new HBox(title);
         top.setAlignment(Pos.CENTER);
