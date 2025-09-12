@@ -27,12 +27,12 @@ public class Main extends Application {
 
 
         
-         BorderPane root = createBorderPaneSkeleton();       // Step 1
+      //   BorderPane root = createBorderPaneSkeleton();       // Step 1
 //        BorderPane root = createBorderPaneWithTop();        // Step 2
 //         BorderPane root = createBorderPaneWithLeft();       // Step 3
 //         BorderPane root = createBorderPaneWithCenter();     // Step 4
 //         BorderPane root = createBorderPaneWithRight();      // Step 5
-//        BorderPane root = createBorderPaneWithBottom();      // Step 6
+   BorderPane root = createBorderPaneWithBottom();      // Step 6
 
         Scene scene = new Scene(root, 1000, 650);
         primaryStage.setTitle("JavaFX Layout Puzzle");
