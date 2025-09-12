@@ -25,7 +25,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         // --- Top (HBox: Title) ---
-        Label title = new Label("📅 studentsss Projects Planner!!@@!!");
+        Label title = new Label("📅 StudentDIAKHALIL Project Planner!");
         title.setId("title");
 
         
@@ -59,7 +59,6 @@ public class Main extends Application {
 
     private HBox createTopHBox() {
         Label title = new Label("📅 Student Project Planner");
->>>>>>> branch 'master' of https://github.com/Dia8897/JavaFXProjectDb.git
         HBox top = new HBox(title);
         top.setAlignment(Pos.CENTER);
         top.setPadding(new Insets(20));
