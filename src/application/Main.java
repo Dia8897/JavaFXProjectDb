@@ -25,7 +25,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         // --- Top (HBox: Title) ---
-        Label title = new Label("📅 khara Projects Planner!!@@!!");
+        Label title = new Label("📅 studentsss Projects Planner!!@@!!");
         title.setId("title");
 
         
