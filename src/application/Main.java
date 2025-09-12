@@ -151,12 +151,32 @@ public class Main extends Application {
     private VBox createBottomVBox() {
         Label chartLabel = new Label("📊 Task Statistics");
 
-        PieChart pieChart = new PieChart();
-        pieChart.getData().add(new PieChart.Data("Completed", 2));
-        pieChart.getData().add(new PieChart.Data("Pending", 2));
-        pieChart.setTitle("Task Completion");
+        PieChart pieChart = createPieChart();
+        BarChart barChart = createBarChart();
 
-        CategoryAxis xAxis = new CategoryAxis();
+        HBox chartsBox = new HBox(40, pieChart, barChart);
+        chartsBox.setAlignment(Pos.CENTER);
+        chartsBox.setPadding(new Insets(40));
+        chartsBox.setStyle("-fx-border-color: brown; -fx-border-width: 5px;");
+
+        VBox bottom = new VBox(20, chartLabel, chartsBox);
+        bottom.setAlignment(Pos.CENTER);
+        bottom.setPadding(new Insets(15));
+        bottom.setStyle("-fx-border-color: brown; -fx-border-width: 5px;"); // visualize
+
+        return bottom;
+    }
+
+    public PieChart createPieChart() {
+    	PieChart pieChart = new PieChart();
+    	pieChart.getData().add(new PieChart.Data("Completed", 2));
+    	pieChart.getData().add(new PieChart.Data("Pending", 2));
+    	pieChart.setTitle("Task Completion");
+    	return pieChart;
+    }
+    
+    public BarChart createBarChart() {
+    	CategoryAxis xAxis = new CategoryAxis();
         NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("Priority");
         yAxis.setLabel("Number of Tasks");
@@ -170,19 +190,9 @@ public class Main extends Application {
         series.getData().add(new XYChart.Data<>("Medium", 2));
         series.getData().add(new XYChart.Data<>("High", 1));
         barChart.getData().add(series);
-
-        HBox chartsBox = new HBox(40, pieChart, barChart);
-        chartsBox.setAlignment(Pos.CENTER);
-        chartsBox.setPadding(new Insets(15));
-
-        VBox bottom = new VBox(10, chartLabel, chartsBox);
-        bottom.setAlignment(Pos.CENTER);
-        bottom.setPadding(new Insets(15));
-        bottom.setStyle("-fx-border-color: brown; -fx-border-width: 2px;"); // visualize
-
-        return bottom;
+        return barChart;
     }
-
+    
     public static void main(String[] args) {
         launch(args);
     }
