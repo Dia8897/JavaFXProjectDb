@@ -24,11 +24,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-<<<<<<< HEAD
         // --- Top (HBox: Title) ---
-        Label title = new Label("📅 StudentsNOUSHI Projects Planner!!@@!!");
+        Label title = new Label("📅 khara Projects Planner!!@@!!");
         title.setId("title");
-=======
 
         
 //         BorderPane root = createBorderPaneSkeleton();       // Step 1
