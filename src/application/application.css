@@ -1,63 +1,186 @@
-.root {
-    -fx-background-color: #fdfdfd;
-    -fx-font-family: "Segoe UI", sans-serif;
+
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.search-field {
+    -fx-border-color: darkgreen;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
 }
 
-/* Title */
-#title {
-    -fx-font-size: 26px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #2c3e50;
+.title{
+	-fx-font-size: 30px;
 }
 
-/* Labels */
-.label {
-    -fx-font-size: 15px;
-    -fx-text-fill: #444;
+.subTitle{
+	-fx-font-size: 14px; 
+	-fx-text-fill: gray;
 }
 
-/* General Buttons */
-.button {
-    -fx-background-color: #4CAF50;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-padding: 8 15 8 15;
-    -fx-background-radius: 10;
+.body{
+	-fx-background-color: white;
+}
+
+.task-completed {
+    -fx-background-color: #c8e6c9;   /* soft green */
+    -fx-border-color: #388e3c;       /* darker green border */
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 12px;             /* smaller font */
+    -fx-font-weight: normal;         /* less bold */
+    -fx-text-fill: #1b5e20;
+    -fx-padding: 6 10 6 10;          /* smaller padding */
+}
+
+.task-pending {
+    -fx-background-color: #ffcdd2;   /* soft red/pink */
+    -fx-border-color: #d32f2f;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 12px;
+    -fx-font-weight: normal;
+    -fx-text-fill: #b71c1c;
+    -fx-padding: 6 10 6 10;
+}
+
+.task-progress {
+    -fx-background-color: #fff9c4;   /* soft yellow */
+    -fx-border-color: #fbc02d;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 12px;
+    -fx-font-weight: normal;
+    -fx-text-fill: #f57f17;
+    -fx-padding: 6 10 6 10;
+}
+
+.task-report {
+    -fx-background-color: #bbdefb;   /* soft blue */
+    -fx-border-color: #1976d2;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 12px;
+    -fx-font-weight: normal;
+    -fx-text-fill: #0d47a1;
+    -fx-padding: 6 10 6 10;
+}
+
+/* Hover effect for all */
+.button:hover {
+    -fx-opacity: 0.9;
     -fx-cursor: hand;
 }
-.button:hover {
-    -fx-background-color: #388E3C;
+
+
+
+/* GridPane container */
+.center-gridpane {
+    -fx-border-color: #b0bec5; /* light gray border */
+    -fx-border-width: 2px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 15px;
 }
 
-/* Task buttons (on the left list) */
-.vbox .button {
-    -fx-background-color: #e0e0e0;
-    -fx-text-fill: #000;
-    -fx-font-size: 13px;
-    -fx-background-radius: 6;
-    -fx-alignment: center-left;
-}
-.vbox .button:hover {
-    -fx-background-color: #cfd8dc;
-}
-
-/* Quick actions (right side) */
-.tile-pane .button {
-    -fx-background-color: #2196F3;
-    -fx-text-fill: white;
-    -fx-background-radius: 8;
-}
-.tile-pane .button:hover {
-    -fx-background-color: #1976D2;
-}
-
-/* Footer charts area */
-.hbox, .vbox {
-    -fx-background-color: transparent;
-}
-
-.chart-title {
+/* Title label */
+.center-title {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
-    -fx-text-fill: #2c3e50;
+    -fx-text-fill: #37474f; /* dark gray */
+}
+
+/* Regular labels */
+.center-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #546e7a; /* medium gray */
+}
+
+/* TextFields */
+.center-textfield {
+    -fx-background-color: #ffffff; /* white background */
+    -fx-border-color: #90a4ae;      /* subtle gray border */
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 4 6 4 6;
+}
+.center-textfield:focused {
+    -fx-border-color: #1976d2;      /* blue border on focus */
+}
+
+/* ChoiceBox */
+.center-choicebox {
+    -fx-background-color: #ffffff; /* white */
+    -fx-border-color: #90a4ae;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+/* Add Button */
+.center-add-button {
+    -fx-background-color: #eceff1;   /* light gray */
+    -fx-border-color: #b0bec5;       /* gray border */
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-font-weight: normal;
+}
+.center-add-button:hover {
+    -fx-background-color: #cfd8dc;   /* slightly darker gray on hover */
+    -fx-cursor: hand;
+}
+
+
+
+
+/* Right VBox container */
+/* VBox on the right */
+.right-vbox {
+    -fx-border-color: #8e24aa; /* purple border */
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 15px;
+    -fx-background-color: #f3e5f5; /* lavender background */
+}
+
+/* Label */
+.right-label {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4a148c;
+    -fx-padding: 0 0 12 0;
+}
+
+/* Buttons with colors */
+.calendar-btn {
+    -fx-background-color: #42a5f5; /* blue */
+    -fx-text-fill: white;
+    -fx-background-radius: 6px;
+}
+.calendar-btn:hover {
+    -fx-background-color: #1e88e5;
+    -fx-cursor: hand;
+}
+
+.stats-btn {
+    -fx-background-color: #66bb6a; /* green */
+    -fx-text-fill: white;
+    -fx-background-radius: 6px;
+}
+.stats-btn:hover {
+    -fx-background-color: #388e3c;
+    -fx-cursor: hand;
+}
+
+.settings-btn {
+    -fx-background-color: #ffb74d; /* orange */
+    -fx-text-fill: white;
+    -fx-background-radius: 6px;
+}
+.settings-btn:hover {
+    -fx-background-color: #f57c00;
+    -fx-cursor: hand;
 }
