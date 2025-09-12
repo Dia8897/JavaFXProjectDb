@@ -4,23 +4,79 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.chart.*;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+<<<<<<< HEAD
         // --- Top (HBox: Title) ---
         Label title = new Label("📅 StudentsNOUSHI Projects Planner!!@@!!");
         title.setId("title");
+=======
+
+        
+//         BorderPane root = createBorderPaneSkeleton();       // Step 1
+//        BorderPane root = createBorderPaneWithTop();        // Step 2
+//         BorderPane root = createBorderPaneWithLeft();       // Step 3
+//         BorderPane root = createBorderPaneWithCenter();     // Step 4
+//         BorderPane root = createBorderPaneWithRight();      // Step 5
+        BorderPane root = createBorderPaneWithBottom();      // Step 6
+
+        Scene scene = new Scene(root, 1000, 650);
+        primaryStage.setTitle("JavaFX Layout Puzzle");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    // Step 1: Empty BorderPane
+    private BorderPane createBorderPaneSkeleton() {
+        BorderPane root = new BorderPane();
+        root.setPadding(new Insets(20));
+        root.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+        return root;
+    }
+
+    // Step 2: Top HBox
+    private BorderPane createBorderPaneWithTop() {
+        BorderPane root = createBorderPaneSkeleton();
+        root.setTop(createTopHBox());
+        return root;
+    }
+
+    private HBox createTopHBox() {
+        Label title = new Label("📅 Student Project Planner");
+>>>>>>> branch 'master' of https://github.com/Dia8897/JavaFXProjectDb.git
         HBox top = new HBox(title);
         top.setAlignment(Pos.CENTER);
         top.setPadding(new Insets(20));
+        top.setStyle("-fx-border-color: blue; -fx-border-width: 2px;");
+        return top;
+    }
 
-        // --- Left (VBox: Task List) ---
+    // Step 3: Left VBox
+    private BorderPane createBorderPaneWithLeft() {
+        BorderPane root = createBorderPaneWithTop();
+        root.setLeft(createLeftVBox());
+        return root;
+    }
+
+    private VBox createLeftVBox() {
         Label tasksLabel = new Label("My Tasks");
         Button task1 = new Button("✔ Math Homework - Due Today");
         Button task2 = new Button("❌ Java Project - Due Friday");
@@ -31,8 +87,18 @@ public class Main extends Application {
         left.setPadding(new Insets(15));
         left.setAlignment(Pos.TOP_LEFT);
         left.setPrefWidth(230);
+        left.setStyle("-fx-border-color: green; -fx-border-width: 2px;");
+        return left;
+    }
 
-        // --- Center (GridPane: Add Task Form) ---
+    // Step 4: Center GridPane
+    private BorderPane createBorderPaneWithCenter() {
+        BorderPane root = createBorderPaneWithLeft();
+        root.setCenter(createCenterGridPane());
+        return root;
+    }
+
+    private GridPane createCenterGridPane() {
         Label nameLabel = new Label("Task Name:");
         TextField nameField = new TextField();
         Label deadlineLabel = new Label("Deadline:");
@@ -40,7 +106,6 @@ public class Main extends Application {
         Label priorityLabel = new Label("Priority:");
         ChoiceBox<String> priorityBox = new ChoiceBox<>();
         priorityBox.getItems().addAll("Low", "Medium", "High");
-
         Button addButton = new Button("➕ Add Task");
 
         GridPane center = new GridPane();
@@ -54,29 +119,48 @@ public class Main extends Application {
         center.add(priorityLabel, 0, 2);
         center.add(priorityBox, 1, 2);
         center.add(addButton, 1, 3);
+        center.setStyle("-fx-border-color: orange; -fx-border-width: 2px;"); // visualize
+        return center;
+    }
 
-        // --- Right (TilePane: Quick Actions) ---
+    // Step 5: Right VBox + TilePane
+    private BorderPane createBorderPaneWithRight() {
+        BorderPane root = createBorderPaneWithCenter();
+        root.setRight(createRightVBox());
+        return root;
+    }
+
+    private VBox createRightVBox() {
         Label quickLabel = new Label("Quick Actions");
         Button viewCalendar = new Button("📆 View Calendar");
         Button viewStats = new Button("📊 Progress Report");
         Button settings = new Button("⚙ Settings");
+
         TilePane right = new TilePane(10, 10, viewCalendar, viewStats, settings);
         right.setAlignment(Pos.TOP_CENTER);
-        right.setPadding(new Insets(15));
+
         VBox rightBox = new VBox(10, quickLabel, right);
         rightBox.setAlignment(Pos.TOP_CENTER);
         rightBox.setPrefWidth(180);
+        rightBox.setStyle("-fx-border-color: purple; -fx-border-width: 2px;");
+        return rightBox;
+    }
 
-        // --- Bottom (Charts Section) ---
+    // Step 6: Bottom VBox + HBox (Charts)
+    private BorderPane createBorderPaneWithBottom() {
+        BorderPane root = createBorderPaneWithRight();
+        root.setBottom(createBottomVBox());
+        return root;
+    }
+
+    private VBox createBottomVBox() {
         Label chartLabel = new Label("📊 Task Statistics");
 
-        // PieChart: Completed vs Pending
         PieChart pieChart = new PieChart();
         pieChart.getData().add(new PieChart.Data("Completed", 2));
         pieChart.getData().add(new PieChart.Data("Pending", 2));
         pieChart.setTitle("Task Completion");
 
-        // BarChart: Tasks by Priority
         CategoryAxis xAxis = new CategoryAxis();
         NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("Priority");
@@ -90,7 +174,6 @@ public class Main extends Application {
         series.getData().add(new XYChart.Data<>("Low", 1));
         series.getData().add(new XYChart.Data<>("Medium", 2));
         series.getData().add(new XYChart.Data<>("High", 1));
-
         barChart.getData().add(series);
 
         HBox chartsBox = new HBox(40, pieChart, barChart);
@@ -100,22 +183,9 @@ public class Main extends Application {
         VBox bottom = new VBox(10, chartLabel, chartsBox);
         bottom.setAlignment(Pos.CENTER);
         bottom.setPadding(new Insets(15));
+        bottom.setStyle("-fx-border-color: brown; -fx-border-width: 2px;"); // visualize
 
-        // --- Root Layout (BorderPane) ---
-        BorderPane root = new BorderPane();
-        root.setTop(top);
-        root.setLeft(left);
-        root.setCenter(center);
-        root.setRight(rightBox);
-        root.setBottom(bottom);
-
-        // --- Scene ---
-        Scene scene = new Scene(root, 1000, 650);
-        scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-
-        primaryStage.setTitle("Student Planner Demo - Layouts + Charts");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        return bottom;
     }
 
     public static void main(String[] args) {
