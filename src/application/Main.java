@@ -1,14 +1,18 @@
 package application;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.Side;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -27,14 +31,14 @@ public class Main extends Application {
 
 
         
-  //   BorderPane root = createBorderPaneSkeleton();       // Step 1
+ //   BorderPane root = createBorderPaneSkeleton();       // Step 1
 //        BorderPane root = createBorderPaneWithTop();        // Step 2
 //         BorderPane root = createBorderPaneWithLeft();       // Step 3
 //         BorderPane root = createBorderPaneWithCenter();     // Step 4
 //         BorderPane root = createBorderPaneWithRight();      // Step 5
      		BorderPane root = createBorderPaneWithBottom();      // Step 6
 
-   //  Wrap BorderPane in a ScrollPane to be able to scroll
+ //  Wrap BorderPane in a ScrollPane to be able to scroll
    ScrollPane scrollPane = new ScrollPane(root);
    scrollPane.setFitToWidth(true);
    scrollPane.setFitToHeight(true);
@@ -70,11 +74,11 @@ public class Main extends Application {
 //      each region can contain a real object like: VBox, HBox, GridPane
 
         root.setStyle("-fx-border-color: gray; -fx-border-width: 5px;");
-//      red border around the borderpane to see it clearly
+//      red border around the borderPane to see it clearly
         root.getStyleClass().add("body");
 
         return root;
-//      returns the created borderpane
+//      returns the created borderPane
     }
    
 
@@ -128,7 +132,7 @@ public class Main extends Application {
         task5.getStyleClass().add("task-report");
 
         
-//        creating a vertical container: 12 is the spacing between the children, the children are the label and the buttons
+//      creating a vertical container: 12 is the spacing between the children, the children are the label and the buttons
         VBox left = new VBox(25, tasksLabel, task1, task2, task3, task4);
         left.setPadding(new Insets(15)); //padding inside the VBox, around the edges
         left.setAlignment(Pos.TOP_LEFT); //align the children at the top left of the VBox
@@ -143,9 +147,7 @@ public class Main extends Application {
     
     private BorderPane createBorderPaneWithCenter() {
         BorderPane root = createBorderPaneWithLeft(); // builds on top + left already
-
         root.setCenter(createCenterGridPane()); // adds the GridPane to the center
-
         return root;
     }
 
@@ -165,7 +167,6 @@ public class Main extends Application {
     	    deadlineField.getStyleClass().add("center-textfield");
     	    
     	    
-
     	    Label priorityLabel = new Label("Priority:");
     	    priorityLabel.getStyleClass().add("center-label");
     	    ChoiceBox<String> priorityBox = new ChoiceBox<>();
@@ -179,8 +180,7 @@ public class Main extends Application {
         assignedLabel.getStyleClass().add("center-label");
         TextField assignedField = new TextField();                // input for student name
         assignedField.getStyleClass().add("center-textfield");
-        
-        
+         
 //      Creates a GridPane, which arranges children in rows and columns
       GridPane center = new GridPane();
       center.setHgap(12);
@@ -230,9 +230,7 @@ public class Main extends Application {
         right.setAlignment(Pos.TOP_CENTER); // align children at top center
         right.setPrefWidth(180); // preferred width
         right.setStyle("-fx-border-color: purple; -fx-border-width: 2px;"); // visualize VBox
-        right.getStyleClass().add("right-vbox");
-
-               
+        right.getStyleClass().add("right-vbox");       
 
         root.setRight(right); // put VBox in the right region of the BorderPane
 
@@ -267,12 +265,26 @@ public class Main extends Application {
     }
 
     public PieChart createPieChart() {
-    	PieChart pieChart = new PieChart();
-    	pieChart.getData().add(new PieChart.Data("Completed", 2));
-    	pieChart.getData().add(new PieChart.Data("Pending", 2));
-    	pieChart.setTitle("Task Completion");
-    	return pieChart;
-    }
+    	ObservableList<Data> data = FXCollections.observableArrayList();
+    	//insert data:
+    	data.addAll(
+    		new PieChart.Data("Completed", 1),
+    		new PieChart.Data("In Progress", 2),
+    		new PieChart.Data("Not Started", 3)
+    	);
+    	
+    	PieChart pie = new PieChart();
+    	pie.setData(data); 
+    	//If Later on, you want to add a new value:
+    	//pie.getData().add(new PieChart.Data("Soon", 5));
+    	
+    	pie.setLegendSide(Side.BOTTOM);
+    	pie.setTitle("Tasks Status");
+    	pie.setLabelLineLength(20);
+    	pie.setLabelsVisible(true);
+    	return pie;
+    	
+   }
     
     public BarChart createBarChart() {
     	CategoryAxis xAxis = new CategoryAxis();
@@ -285,10 +297,15 @@ public class Main extends Application {
 
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Tasks");
+        
         series.getData().add(new XYChart.Data<>("Low", 1));
         series.getData().add(new XYChart.Data<>("Medium", 2));
         series.getData().add(new XYChart.Data<>("High", 1));
+        
+        // we can change the legend's side
+        barChart.setLegendSide(Side.TOP);
         barChart.getData().add(series);
+        
         return barChart;
     }
     
