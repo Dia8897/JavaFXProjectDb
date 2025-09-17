@@ -38,7 +38,7 @@ public class Main extends Application {
 //         BorderPane root = createBorderPaneWithRight();      // Step 5
      		BorderPane root = createBorderPaneWithBottom();      // Step 6
 
- //  Wrap BorderPane in a ScrollPane to be able to scroll
+//   Wrap BorderPane in a ScrollPane to be able to scroll
    ScrollPane scrollPane = new ScrollPane(root);
    scrollPane.setFitToWidth(true);
    scrollPane.setFitToHeight(true);
@@ -134,7 +134,7 @@ public class Main extends Application {
         Button task5 = new Button("📝 Final Report - Alice & Bob (Next Week)");
         task5.getStyleClass().add("task-report");
 
-       VBox left = new VBox(15,task1,task2,task3,task4,task5);
+       VBox left = new VBox(15, tasksLabel,task1,task2,task3,task4,task5);
        root.setLeft(left);
 //      creating a vertical container: 12 is the spacing between the children, the children are the label and the buttons
      
@@ -229,9 +229,7 @@ public class Main extends Application {
         settings.getStyleClass().add("settings-btn");
 
         // VBox to hold the quick actions vertically
-        
-        VBox right = new VBox(25,quickLabel, viewCalendar,viewStats,settings);
-       
+        VBox right = new VBox(15,quickLabel,viewCalendar,viewStats,settings);
         root.setRight(right);
         
         right.setAlignment(Pos.TOP_CENTER); // align children at top center
