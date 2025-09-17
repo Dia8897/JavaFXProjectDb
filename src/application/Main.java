@@ -31,10 +31,10 @@ public class Main extends Application {
 
 
         
- //   BorderPane root = createBorderPaneSkeleton();       // Step 1
-//        BorderPane root = createBorderPaneWithTop();        // Step 2
+  //  BorderPane root = createBorderPaneSkeleton();       // Step 1
+   //   BorderPane root = createBorderPaneWithTop();        // Step 2
 //         BorderPane root = createBorderPaneWithLeft();       // Step 3
-//         BorderPane root = createBorderPaneWithCenter();     // Step 4
+ //        BorderPane root = createBorderPaneWithCenter();     // Step 4
 //         BorderPane root = createBorderPaneWithRight();      // Step 5
      		BorderPane root = createBorderPaneWithBottom();      // Step 6
 
@@ -44,7 +44,7 @@ public class Main extends Application {
    scrollPane.setFitToHeight(true);
 
    // Scene now uses the scrollPane instead of root
-   Scene scene = new Scene(scrollPane, 1000, 650);
+   Scene scene = new Scene(scrollPane, 600, 600);
         
         scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
         primaryStage.setTitle("JavaFX Layout Puzzle");
