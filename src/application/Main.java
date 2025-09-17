@@ -31,10 +31,10 @@ public class Main extends Application {
 
 
         
-  //  BorderPane root = createBorderPaneSkeleton();       // Step 1
-   //   BorderPane root = createBorderPaneWithTop();        // Step 2
+//    BorderPane root = createBorderPaneSkeleton();       // Step 1
+//      BorderPane root = createBorderPaneWithTop();        // Step 2
 //         BorderPane root = createBorderPaneWithLeft();       // Step 3
- //        BorderPane root = createBorderPaneWithCenter();     // Step 4
+//         BorderPane root = createBorderPaneWithCenter();     // Step 4
 //         BorderPane root = createBorderPaneWithRight();      // Step 5
      		BorderPane root = createBorderPaneWithBottom();      // Step 6
 
@@ -45,6 +45,9 @@ public class Main extends Application {
 
    // Scene now uses the scrollPane instead of root
    Scene scene = new Scene(scrollPane, 600, 600);
+//   Scene scene = new Scene(root);
+   primaryStage.setX(750);
+   primaryStage.setY(0);
         
         scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
         primaryStage.setTitle("JavaFX Layout Puzzle");
@@ -61,7 +64,7 @@ public class Main extends Application {
 //              4. Right – content along the right side
 //              5. Center-fills the remaining space in the middle
         BorderPane root = new BorderPane();
-        root.setPadding(new Insets(20));
+       
 //      Adds padding inside the BorderPane (space between edges of the window and its children)
 
         // Just empty panes in each region to visualize
@@ -131,15 +134,16 @@ public class Main extends Application {
         Button task5 = new Button("📝 Final Report - Alice & Bob (Next Week)");
         task5.getStyleClass().add("task-report");
 
-        
+       VBox left = new VBox(15,task1,task2,task3,task4,task5);
+       root.setLeft(left);
 //      creating a vertical container: 12 is the spacing between the children, the children are the label and the buttons
-        VBox left = new VBox(25, tasksLabel, task1, task2, task3, task4);
+     
         left.setPadding(new Insets(15)); //padding inside the VBox, around the edges
         left.setAlignment(Pos.TOP_LEFT); //align the children at the top left of the VBox
         left.setPrefWidth(230); //set the preferred width of the VBox to ensure it doesn't shrink too much
         left.setStyle("-fx-border-color: darkslategray; -fx-border-width: 2px;"); // visualize VBox
 
-        root.setLeft(left); // put VBox in the left region
+   
 
         return root;
     }
@@ -225,14 +229,16 @@ public class Main extends Application {
         settings.getStyleClass().add("settings-btn");
 
         // VBox to hold the quick actions vertically
-        VBox right = new VBox(25, quickLabel, viewCalendar, viewStats, settings);
-        right.setPadding(new Insets(15)); // padding inside VBox
+        
+        VBox right = new VBox(25,quickLabel, viewCalendar,viewStats,settings);
+       
+        root.setRight(right);
+        
         right.setAlignment(Pos.TOP_CENTER); // align children at top center
         right.setPrefWidth(180); // preferred width
         right.setStyle("-fx-border-color: purple; -fx-border-width: 2px;"); // visualize VBox
         right.getStyleClass().add("right-vbox");       
 
-        root.setRight(right); // put VBox in the right region of the BorderPane
 
         return root;
     }
