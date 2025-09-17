@@ -282,6 +282,8 @@ public class Main extends Application {
     	pie.setTitle("Tasks Status");
     	pie.setLabelLineLength(20);
     	pie.setLabelsVisible(true);
+    	
+    	pie.setId("statusPie");
     	return pie;
     	
    }
@@ -305,6 +307,8 @@ public class Main extends Application {
         // we can change the legend's side
         barChart.setLegendSide(Side.TOP);
         barChart.getData().add(series);
+        
+        barChart.setId("priorityBar");
         
         return barChart;
     }
