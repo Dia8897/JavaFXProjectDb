@@ -1,199 +1,29 @@
 
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
-
-.search-field {
-    -fx-border-color: darkgreen;
-    -fx-border-width: 2px;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
-}
-
-.title{
-	-fx-font-size: 30px;
-}
-
-.subTitle{
-	-fx-font-size: 14px; 
-	-fx-text-fill: gray;
-}
-
-.body{
-	-fx-background-color: white;
-}
-
-.task-completed {
-    -fx-background-color: #c8e6c9;   /* soft green */
-    -fx-border-color: #388e3c;       /* darker green border */
-    -fx-border-width: 1.5px;
-    -fx-border-radius: 6px;
-    -fx-background-radius: 6px;
-    -fx-font-size: 12px;             /* smaller font */
-    -fx-font-weight: normal;         /* less bold */
-    -fx-text-fill: #1b5e20;
-    -fx-padding: 6 10 6 10;          /* smaller padding */
-}
-
-.task-pending {
-    -fx-background-color: #ffcdd2;   /* soft red/pink */
-    -fx-border-color: #d32f2f;
-    -fx-border-width: 1.5px;
-    -fx-border-radius: 6px;
-    -fx-background-radius: 6px;
-    -fx-font-size: 12px;
-    -fx-font-weight: normal;
-    -fx-text-fill: #b71c1c;
-    -fx-padding: 6 10 6 10;
-}
-
-.task-progress {
-    -fx-background-color: #fff9c4;   /* soft yellow */
-    -fx-border-color: #fbc02d;
-    -fx-border-width: 1.5px;
-    -fx-border-radius: 6px;
-    -fx-background-radius: 6px;
-    -fx-font-size: 12px;
-    -fx-font-weight: normal;
-    -fx-text-fill: #f57f17;
-    -fx-padding: 6 10 6 10;
-}
-
-.task-report {
-    -fx-background-color: #bbdefb;   /* soft blue */
-    -fx-border-color: #1976d2;
-    -fx-border-width: 1.5px;
-    -fx-border-radius: 6px;
-    -fx-background-radius: 6px;
-    -fx-font-size: 12px;
-    -fx-font-weight: normal;
-    -fx-text-fill: #0d47a1;
-    -fx-padding: 6 10 6 10;
-}
-
-/* Hover effect for all */
-.button:hover {
-    -fx-opacity: 0.9;
-    -fx-cursor: hand;
-}
-
-
-
-/* GridPane container */
-.center-gridpane {
-    -fx-border-color: #b0bec5; /* light gray border */
-    -fx-border-width: 2px;
-    -fx-border-radius: 6px;
-    -fx-background-radius: 6px;
-    -fx-padding: 15px;
-}
-
-/* Title label */
-.center-title {
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #37474f; /* dark gray */
-}
-
-/* Regular labels */
-.center-label {
-    -fx-font-weight: bold;
-    -fx-text-fill: #546e7a; /* medium gray */
-}
-
-/* TextFields */
-.center-textfield {
-    -fx-background-color: #ffffff; /* white background */
-    -fx-border-color: #90a4ae;      /* subtle gray border */
-    -fx-border-radius: 4px;
-    -fx-background-radius: 4px;
-    -fx-padding: 4 6 4 6;
-}
-.center-textfield:focused {
-    -fx-border-color: #1976d2;      /* blue border on focus */
-}
-
-/* ChoiceBox */
-.center-choicebox {
-    -fx-background-color: #ffffff; /* white */
-    -fx-border-color: #90a4ae;
-    -fx-border-radius: 4px;
-    -fx-background-radius: 4px;
-}
-
-/* Add Button */
+/* add button */
 .center-add-button {
-    -fx-background-color: #eceff1;   /* light gray */
-    -fx-border-color: #b0bec5;       /* gray border */
-    -fx-border-radius: 4px;
-    -fx-background-radius: 4px;
-    -fx-font-weight: normal;
+	-fx-background-color:white;
+	-fx-text-fill:#e91e63;
+	-fx-border-color:#e91e63;
+	-fx-border-radius:10px;
+	-fx-background-radius:10px;
+	
 }
 .center-add-button:hover {
-    -fx-background-color: #cfd8dc;   /* slightly darker gray on hover */
-    -fx-cursor: hand;
+	-fx-background-color:#e91e63;
+	-fx-text-fill:white;
+	-fx-border-color:white;
 }
 
 
 
-
-/* Right VBox container */
-/* VBox on the right */
-.right-vbox {
-    -fx-border-color: #8e24aa; /* purple border */
-    -fx-border-width: 2px;
-    -fx-border-radius: 8px;
-    -fx-background-radius: 8px;
-    -fx-padding: 15px;
-    -fx-background-color: #f3e5f5; /* lavender background */
-}
-
-/* Label */
-.right-label {
-    -fx-font-size: 15px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #4a148c;
-    -fx-padding: 0 0 12 0;
-}
-
-/* Buttons with colors */
-.calendar-btn {
-    -fx-background-color: #42a5f5; /* blue */
-    -fx-text-fill: white;
-    -fx-background-radius: 6px;
-}
-.calendar-btn:hover {
-    -fx-background-color: #1e88e5;
-    -fx-cursor: hand;
-}
-
-.stats-btn {
-    -fx-background-color: #66bb6a; /* green */
-    -fx-text-fill: white;
-    -fx-background-radius: 6px;
-}
-.stats-btn:hover {
-    -fx-background-color: #388e3c;
-    -fx-cursor: hand;
-}
-
-.settings-btn {
-    -fx-background-color: #ffb74d; /* orange */
-    -fx-text-fill: white;
-    -fx-background-radius: 6px;
-}
-.settings-btn:hover {
-    -fx-background-color: #f57c00;
-    -fx-cursor: hand;
-}
-
-
-/* chart titles */
+/* charts*/
 .chart-title {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #37474f;
 }
 
-/* legend + text */
+
 .chart-legend {
     -fx-background-color: transparent;
     -fx-padding: 4 0 0 0;
@@ -218,18 +48,13 @@
     -fx-stroke-width: 0.75px;
 }
 
-#statusPie .default-color0.chart-pie { -fx-pie-color: #c8e6c9; }  /* Completed */
-#statusPie .default-color1.chart-pie { -fx-pie-color: #fdfd96; }  /* In Progress */
-#statusPie .default-color2.chart-pie { -fx-pie-color: #faa0a0; }  /* Not Started */
+#statusPie .default-color0.chart-pie { -fx-pie-color: #c8e6c9; }  
+#statusPie .default-color1.chart-pie { -fx-pie-color: #fdfd96; }  
+#statusPie .default-color2.chart-pie { -fx-pie-color: #faa0a0; }  
 
 #statusPie .chart-pie:hover   { -fx-opacity: 0.9; }
 #statusPie .chart-pie:pressed { -fx-opacity: 0.85; }
 
-
-
-#priorityBar .default-color0.chart-bar { -fx-bar-fill: #a5d6a7; }  /* Low    */
-#priorityBar .default-color1.chart-bar { -fx-bar-fill: #ffecb3; }  /* Medium */
-#priorityBar .default-color2.chart-bar { -fx-bar-fill: #ef9a9a; }  /* High   */
 
 #priorityBar .axis-label {
     -fx-text-fill: #455a64;
@@ -240,3 +65,191 @@
     -fx-font-size: 11px;
 }
 #priorityBar .chart-bar:hover { -fx-opacity: 0.9; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.search-field {
+    -fx-border-color: darkgreen;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.title{
+	-fx-font-size: 30px;
+}
+
+.subTitle{
+	-fx-font-size: 14px; 
+	-fx-text-fill: gray;
+}
+
+.body{
+	-fx-background-color: white;
+}
+
+.task-completed {
+    -fx-background-color: #c8e6c9;  
+    -fx-border-color: #388e3c;      
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 12px;            
+    -fx-font-weight: normal;        
+    -fx-text-fill: #1b5e20;
+    -fx-padding: 6 10 6 10;         
+}
+
+.task-pending {
+    -fx-background-color: #ffcdd2;   
+    -fx-border-color: #d32f2f;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 12px;
+    -fx-font-weight: normal;
+    -fx-text-fill: #b71c1c;
+    -fx-padding: 6 10 6 10;
+}
+
+.task-progress {
+    -fx-background-color: #fff9c4;  
+    -fx-border-color: #fbc02d;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 12px;
+    -fx-font-weight: normal;
+    -fx-text-fill: #f57f17;
+    -fx-padding: 6 10 6 10;
+}
+
+.task-report {
+    -fx-background-color: #bbdefb; 
+    -fx-border-color: #1976d2;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 12px;
+    -fx-font-weight: normal;
+    -fx-text-fill: #0d47a1;
+    -fx-padding: 6 10 6 10;
+}
+
+/* Hover effect for all */
+.button:hover {
+    -fx-opacity: 0.9;
+    -fx-cursor: hand;
+}
+
+
+
+/* GridPane container */
+.center-gridpane {
+    -fx-border-color: #b0bec5;
+    -fx-border-width: 2px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 15px;
+}
+
+/* Title label */
+.center-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #37474f;
+}
+
+/* Regular labels */
+.center-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #546e7a;
+}
+
+/* TextFields */
+.center-textfield {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #90a4ae;     
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 4 6 4 6;
+}
+.center-textfield:focused {
+    -fx-border-color: #1976d2;     
+}
+
+/* ChoiceBox */
+.center-choicebox {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #90a4ae;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+
+
+
+
+/* Right VBox container */
+/* VBox on the right */
+.right-vbox {
+    -fx-border-color: #8e24aa; 
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 15px;
+    -fx-background-color: #f3e5f5; 
+}
+
+/* Label */
+.right-label {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4a148c;
+    -fx-padding: 0 0 12 0;
+}
+
+/* Buttons with colors */
+.calendar-btn {
+    -fx-background-color: #42a5f5; 
+    -fx-text-fill: white;
+    -fx-background-radius: 6px;
+}
+.calendar-btn:hover {
+    -fx-background-color: #1e88e5;
+    -fx-cursor: hand;
+}
+
+.stats-btn {
+    -fx-background-color: #66bb6a; 
+    -fx-text-fill: white;
+    -fx-background-radius: 6px;
+}
+.stats-btn:hover {
+    -fx-background-color: #388e3c;
+    -fx-cursor: hand;
+}
+
+.settings-btn {
+    -fx-background-color: #ffb74d; 
+    -fx-text-fill: white;
+    -fx-background-radius: 6px;
+}
+.settings-btn:hover {
+    -fx-background-color: #f57c00;
+    -fx-cursor: hand;
+}
+
+
+

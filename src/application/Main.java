@@ -35,7 +35,7 @@ public class Main extends Application {
 //      BorderPane root = createBorderPaneWithTop();        // Step 2
 //         BorderPane root = createBorderPaneWithLeft();       // Step 3
 //         BorderPane root = createBorderPaneWithCenter();     // Step 4
-//         BorderPane root = createBorderPaneWithRight();      // Step 5
+//        BorderPane root = createBorderPaneWithRight();      // Step 5
      		BorderPane root = createBorderPaneWithBottom();      // Step 6
 
 //   Wrap BorderPane in a ScrollPane to be able to scroll
@@ -179,28 +179,29 @@ public class Main extends Application {
 
     	    Button addButton = new Button("➕ Add Task");
     	    addButton.getStyleClass().add("center-add-button");
+    	    
 
-        Label assignedLabel = new Label("Assigned To:");          // new column label
+        Label assignedLabel = new Label("Assigned To:");       
         assignedLabel.getStyleClass().add("center-label");
-        TextField assignedField = new TextField();                // input for student name
+        TextField assignedField = new TextField();               
         assignedField.getStyleClass().add("center-textfield");
          
-//      Creates a GridPane, which arranges children in rows and columns
+
       GridPane center = new GridPane();
       center.setHgap(12);
       center.setVgap(12);
       center.setPadding(new Insets(20));
 
-        center.add(centerTitle, 0, 0, 3, 1);                     // Row 0, spans 3 columns (header)
-        center.add(nameLabel, 0, 1);                              // Row 1, Col 0, Task Name label
-        center.add(nameField, 1, 1);                              // Row 1, Col 1, Task Name input
-        center.add(assignedLabel, 2, 1);                          // Row 1, Col 2, Assigned To label
-        center.add(assignedField, 2, 2);                          // Row 2, Col 2, Assigned To input
-        center.add(deadlineLabel, 0, 2);                          // Row 2, Col 0, Deadline label
-        center.add(deadlineField, 1, 2);                          // Row 2, Col 1, Deadline input
-        center.add(priorityLabel, 0, 3);                          // Row 3, Col 0, Priority label
-        center.add(priorityBox, 1, 3);                            // Row 3, Col 1, Priority selector
-        center.add(addButton, 1, 4);                              // Row 4, Col 1, Add Task button
+        center.add(centerTitle, 0, 0);                           // row 0, col 0
+        center.add(nameLabel, 0, 1);                              // row 1, col 0
+        center.add(nameField, 1, 1);                              // row 1, col 1
+        center.add(assignedLabel, 2, 1);                          // row 1, col 2
+        center.add(assignedField, 2, 2);                          // row 2, col 2
+        center.add(deadlineLabel, 0, 2);                          // row 2, col 0
+        center.add(deadlineField, 1, 2);                          // row 2, col 1
+        center.add(priorityLabel, 0, 3);                          // row 3, col 0
+        center.add(priorityBox, 1, 3);                            // row 3, col 1
+        center.add(addButton, 1, 4);                              // row 4, col 1
 
 
 
@@ -229,9 +230,9 @@ public class Main extends Application {
         settings.getStyleClass().add("settings-btn");
 
         // VBox to hold the quick actions vertically
-        VBox right = new VBox(15,quickLabel,viewCalendar,viewStats,settings);
+        VBox right = new VBox(15,quickLabel, viewCalendar, viewStats,settings);
         root.setRight(right);
-        
+      
         right.setAlignment(Pos.TOP_CENTER); // align children at top center
         right.setPrefWidth(180); // preferred width
         right.setStyle("-fx-border-color: purple; -fx-border-width: 2px;"); // visualize VBox
@@ -263,24 +264,19 @@ public class Main extends Application {
         VBox bottom = new VBox(20, chartLabel, chartsBox);
         bottom.setAlignment(Pos.CENTER);
         bottom.setPadding(new Insets(15));
-        bottom.setStyle("-fx-border-color: brown; -fx-border-width: 5px;"); // visualize
+        bottom.setStyle("-fx-border-color: brown; -fx-border-width: 5px;");
 
         return bottom;
     }
 
     public PieChart createPieChart() {
-    	ObservableList<Data> data = FXCollections.observableArrayList();
-    	//insert data:
+    	ObservableList<PieChart.Data> data = FXCollections.observableArrayList();
     	data.addAll(
-    		new PieChart.Data("Completed", 1),
-    		new PieChart.Data("In Progress", 2),
-    		new PieChart.Data("Not Started", 3)
-    	);
+    			new PieChart.Data("Completed", 2),
+    			new PieChart.Data("Pending", 3),
+    			new PieChart.Data("Soon", 2));
+    	PieChart pie = new PieChart(data);
     	
-    	PieChart pie = new PieChart();
-    	pie.setData(data); 
-    	//If Later on, you want to add a new value:
-    	//pie.getData().add(new PieChart.Data("Soon", 5));
     	
     	pie.setLegendSide(Side.BOTTOM);
     	pie.setTitle("Tasks Status");
