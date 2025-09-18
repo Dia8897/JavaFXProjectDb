@@ -38,7 +38,7 @@ public class Main extends Application {
 //        BorderPane root = createBorderPaneWithRight();      // Step 5
      		BorderPane root = createBorderPaneWithBottom();      // Step 6
 
-//   Wrap BorderPane in a ScrollPane to be able to scroll
+//to be able to scroll
    ScrollPane scrollPane = new ScrollPane(root);
    scrollPane.setFitToWidth(true);
    scrollPane.setFitToHeight(true);
