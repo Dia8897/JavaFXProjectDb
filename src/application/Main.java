@@ -43,13 +43,16 @@ public class Main extends Application {
    scrollPane.setFitToWidth(true);
    scrollPane.setFitToHeight(true);
 
-   // Scene now uses the scrollPane instead of root
+
    Scene scene = new Scene(scrollPane, 600, 600);
-//   Scene scene = new Scene(root);
+//   Scene scene = new Scene(root);  //will not be able to scroll
    primaryStage.setX(750);
    primaryStage.setY(0);
-        
+   
+   
+        //link the .java file to the applications.css file
         scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+        
         primaryStage.setTitle("JavaFX Layout Puzzle");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -57,27 +60,19 @@ public class Main extends Application {
 
     // Step 1: Empty BorderPane
     private BorderPane createBorderPaneSkeleton() {
-//      A BorderPane in JavaFX is a layout container that arranges its children into five regions:
-//              1. Top – content at the top edge
-//              2. Bottom – content at the bottom edge
-//              3. Left – content along the left side
-//              4. Right – content along the right side
-//              5. Center-fills the remaining space in the middle
         BorderPane root = new BorderPane();
-       
-//      Adds padding inside the BorderPane (space between edges of the window and its children)
 
-        // Just empty panes in each region to visualize
+        // Empty panes in each region
         root.setTop(new HBox());
         root.setLeft(new VBox());
         root.setCenter(new GridPane());
         root.setRight(new VBox());
         root.setBottom(new HBox());
-//      empty objects in each of the five regions of the border pane
-//      each region can contain a real object like: VBox, HBox, GridPane
+
+
 
         root.setStyle("-fx-border-color: gray; -fx-border-width: 5px;");
-//      red border around the borderPane to see it clearly
+
         root.getStyleClass().add("body");
 
         return root;
@@ -106,8 +101,8 @@ public class Main extends Application {
         
         HBox top = new HBox(15,title,subtitle,searchField,profileBtn); //creating an HBox: horizontal container
         top.setAlignment(Pos.CENTER); //center all the children (title) horizontally 
-        top.setPadding(new Insets(20)); //padding inside the HBox: space between HBox and title
-        top.setStyle("-fx-border-color: steelblue; -fx-border-width: 3px;"); // visualize HBox with a blue border
+        top.setPadding(new Insets(20));
+        top.setStyle("-fx-border-color: steelblue; -fx-border-width: 3px;");
 
         root.setTop(top); //puts the HBox inside the top region of the borderpane
 
@@ -116,7 +111,7 @@ public class Main extends Application {
 
     // Step 3: Left VBox
     private BorderPane createBorderPaneWithLeft() {
-        BorderPane root = createBorderPaneWithTop(); //builds on top already
+        BorderPane root = createBorderPaneWithTop(); 
 
         Label tasksLabel = new Label("Tasks");
         Button task1 = new Button("✔ Research Topic - Alice (Due Today)");
@@ -136,12 +131,11 @@ public class Main extends Application {
 
        VBox left = new VBox(15, tasksLabel,task1,task2,task3,task4,task5);
        root.setLeft(left);
-//      creating a vertical container: 12 is the spacing between the children, the children are the label and the buttons
      
-        left.setPadding(new Insets(15)); //padding inside the VBox, around the edges
+        left.setPadding(new Insets(15));
         left.setAlignment(Pos.TOP_LEFT); //align the children at the top left of the VBox
         left.setPrefWidth(230); //set the preferred width of the VBox to ensure it doesn't shrink too much
-        left.setStyle("-fx-border-color: darkslategray; -fx-border-width: 2px;"); // visualize VBox
+        left.setStyle("-fx-border-color: darkslategray; -fx-border-width: 2px;");
 
    
 
@@ -150,7 +144,7 @@ public class Main extends Application {
     
     
     private BorderPane createBorderPaneWithCenter() {
-        BorderPane root = createBorderPaneWithLeft(); // builds on top + left already
+        BorderPane root = createBorderPaneWithLeft();
         root.setCenter(createCenterGridPane()); // adds the GridPane to the center
         return root;
     }
@@ -205,7 +199,7 @@ public class Main extends Application {
 
 
 
-        center.setStyle("-fx-border-color:lightgray; -fx-border-width: 2px;"); // visualize GridPane
+        center.setStyle("-fx-border-color:lightgray; -fx-border-width: 2px;"); 
         center.getStyleClass().add("center-gridpane");
 
         return center;
@@ -214,9 +208,9 @@ public class Main extends Application {
     
  // Step 5: Right VBox (Quick Actions)
     private BorderPane createBorderPaneWithRight() {
-        BorderPane root = createBorderPaneWithCenter(); // builds on top + left + center already
+        BorderPane root = createBorderPaneWithCenter(); 
 
-        // Create label and buttons for quick actions
+   
         Label quickLabel = new Label("Quick Actions");
         quickLabel.getStyleClass().add("right-label");
         
@@ -229,13 +223,13 @@ public class Main extends Application {
         Button settings = new Button("⚙ Settings");
         settings.getStyleClass().add("settings-btn");
 
-        // VBox to hold the quick actions vertically
-        VBox right = new VBox(15,quickLabel, viewCalendar, viewStats,settings);
-        root.setRight(right);
+   
+       VBox right = new VBox(15,quickLabel, viewCalendar,viewStats, settings);
+       root.setRight(right);
       
         right.setAlignment(Pos.TOP_CENTER); // align children at top center
         right.setPrefWidth(180); // preferred width
-        right.setStyle("-fx-border-color: purple; -fx-border-width: 2px;"); // visualize VBox
+        right.setStyle("-fx-border-color: purple; -fx-border-width: 2px;"); 
         right.getStyleClass().add("right-vbox");       
 
 
@@ -243,7 +237,7 @@ public class Main extends Application {
     }
 
 
-    // Step 6: Bottom VBox + HBox (Charts)
+
     private BorderPane createBorderPaneWithBottom() {
         BorderPane root = createBorderPaneWithRight();
         root.setBottom(createBottomVBox());
@@ -273,8 +267,8 @@ public class Main extends Application {
     	ObservableList<PieChart.Data> data = FXCollections.observableArrayList();
     	data.addAll(
     			new PieChart.Data("Completed", 2),
-    			new PieChart.Data("Pending", 3),
-    			new PieChart.Data("Soon", 2));
+    			new PieChart.Data("Pending", 6),
+    			new PieChart.Data("Soon", 1));
     	PieChart pie = new PieChart(data);
     	
     	

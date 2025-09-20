@@ -5,8 +5,7 @@
 	-fx-text-fill:#e91e63;
 	-fx-border-color:#e91e63;
 	-fx-border-radius:10px;
-	-fx-background-radius:10px;
-	
+	-fx-background-radius:10px;	
 }
 .center-add-button:hover {
 	-fx-background-color:#e91e63;
